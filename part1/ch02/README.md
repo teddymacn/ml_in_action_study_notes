@@ -14,13 +14,14 @@ The variations of neighbors based algorithms are mainly different in how to choo
 
 In the demo code of this chapter, when searching points to choose the k nearest neighbors, we are using a simple brute force algorithm, meaning to compare distance of each point pair in the training data. It's cost is O(DN), where D means number of dimentionality and N means number of points. 
 
-One common approach to enhance performance is to reduce the point search area so that to reduce the number of point distance calculation, which is to use a fixed radius R to only search points inside the this area. This algorithm is called Fixed-radius Nearest Neighbors. But for high-dimensional parameter spaces, this method becomes less effective due to the so-called "[curse of dimensionality](https://en.wikipedia.org/wiki/Curse_of_dimensionality)".
+One common approach to enhance performance is to reduce the point search area so that to reduce the number of point distance calculation, which is to use a fixed radius R to only search points inside the this area. This algorithm is called "Fixed-radius Nearest Neighbors". But for high-dimensional parameter spaces, this method becomes less effective due to the so-called "[curse of dimensionality](https://en.wikipedia.org/wiki/Curse_of_dimensionality)".
 
-There are other common point search algorithms: Ball Tree and K-D Tree. These two search algorithms try to enhance the search performance. Ball Tree's cost is around O[Dlog(N)], while K-D Tree's is between O(DN) and O[Dlog(N)], when D is small (D<20) it is close to O[Dlog(N)], and when D is large, it is close to O(DN).
+There are other common point search algorithms: Ball Tree and k-d Tree. These two point search algorithms try to reduce search cost. Ball Tree's cost is around O[Dlog(N)], while k-d Tree's is between O(DN) and O[Dlog(N)], when D is small (D<20), it's close to O[Dlog(N)], and when D is large, it's close to O(DN).
 
-Although Ball Tree and K-D Tree might have smaller search cost, it doesn't mean they are always better in general. Firstly, Ball Tree and K-D Tree's query time will become slower as k increases. Secondly, both Ball Tree and K-D Tree require a construction phase. If N is relatively small, the cost of the construction phase might be larger than the total search cost they can save.
+Although Ball Tree and k-d Tree might have smaller search cost, it doesn't mean they are always better in general. Firstly, Ball Tree and k-d Tree's query time will become slower as k increases. Secondly, both Ball Tree and k-d Tree require a construction phase. If N is relatively small, the cost of the construction phase might be larger than the total search cost they can save.
 
 *Additional [reference](http://scikit-learn.org/stable/modules/neighbors.html#choice-of-nearest-neighbors-algorithm) for more trade-offs about how to choose a optimal point search algorithm.*
 
 ## Demo Code
 
+[kNN.py](kNN.py) - Revised version of the original kNN demo
