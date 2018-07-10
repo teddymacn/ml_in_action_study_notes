@@ -102,3 +102,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# custom
+part1/ch02/testDigits/
+part1/ch02/trainingDigits/
