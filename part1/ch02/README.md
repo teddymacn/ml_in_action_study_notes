@@ -18,7 +18,9 @@ One common approach to enhance performance is to reduce the point search area so
 
 There are other common point search algorithms: Ball Tree and K-D Tree. These two search algorithms try to enhance the search performance. Ball Tree's cost is around O[Dlog(N)], while K-D Tree's is between O(DN) and O[Dlog(N)], when D is small (D<20) it is close to O[Dlog(N)], and when D is large, it is close to O(DN).
 
-Although Ball Tree and K-D Tree might have smaller cost, it doesn't mean they are always better. Ball Tree and K-D Tree's query time will become slower as k increases. And both Ball Tree and K-D Tree require a construction phase. If N is relatively small, the cost of the construction phase might be larger than the total search cost they can save.
+Although Ball Tree and K-D Tree might have smaller search cost, it doesn't mean they are always better in general. Firstly, Ball Tree and K-D Tree's query time will become slower as k increases. Secondly, both Ball Tree and K-D Tree require a construction phase. If N is relatively small, the cost of the construction phase might be larger than the total search cost they can save.
 
 *Additional [reference](http://scikit-learn.org/stable/modules/neighbors.html#choice-of-nearest-neighbors-algorithm) for more trade-offs about how to choose a optimal point search algorithm.*
+
+## Demo Code
 

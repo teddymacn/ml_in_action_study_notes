@@ -1,4 +1,4 @@
-# The book "Machine Learning in Action" study notes.
+# Machine Learning in Action Study Notes
 
 The purpose of this repo is to keep my notes when studying machine learning algorithms.
 
@@ -19,7 +19,9 @@ This online book covers the basis of neural networks and deep learning, which ar
 
 ## Chapters
 
-ch02 [k-Nearest Neighbors](./part1/ch02/README.md)
+Part I - Machine Learning in Action
+
+02 [k-Nearest Neighbors](./part1/ch02/README.md)
 
 in progress...
 
