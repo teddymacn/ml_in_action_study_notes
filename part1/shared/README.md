@@ -1,0 +1,1 @@
+This folder contains shared modules to be imported by other scripts in chXX folders.
