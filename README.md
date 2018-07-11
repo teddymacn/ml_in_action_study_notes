@@ -16,11 +16,6 @@ This online book covers the basis of neural networks and deep learning, which ar
 
 ## Study Environment
 - Spyder IDE v3.X
-- Set IPython current work path to the part1 folder if you want to import scripts from part1, then to import a module from ch02, you can do:
-    ``` 
-    import ch02.kNN
-    ```
-- Follow the same pattern as part1 if you want to import scripts from part2
 
 ## Chapters
 
