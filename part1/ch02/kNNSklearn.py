@@ -17,7 +17,7 @@ if (sys.path[-1] != '..'): sys.path.append('..')
 from shared.common import *
 
 from numpy import *
-from sklearn import neighbors
+from sklearn import neighbors, preprocessing
 from os import listdir
 
 def createDataSet():
@@ -55,14 +55,10 @@ def file2matrix2():
     return returnMat,classLabelVector
     
 def autoNorm(dataSet):
-    minVals = dataSet.min(0)
-    maxVals = dataSet.max(0)
-    ranges = maxVals - minVals
-    normDataSet = empty(shape(dataSet))
-    m = dataSet.shape[0]
-    normDataSet = dataSet - tile(minVals, (m,1))
-    normDataSet = normDataSet/tile(ranges, (m,1))   #element wise divide
-    return normDataSet, ranges, minVals
+    scaler = preprocessing.MinMaxScaler()
+    scaler.fit(dataSet)
+    normDataSet = scaler.transform(dataSet)
+    return normDataSet, scaler.data_range_ , scaler.data_min_
    
 # 2.2.1 the first dating class test with string labels
 def datingClassTest():
