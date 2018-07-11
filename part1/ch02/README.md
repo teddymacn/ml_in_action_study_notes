@@ -20,7 +20,7 @@ There are other common point search algorithms: Ball Tree and k-d Tree. These tw
 
 Although Ball Tree and k-d Tree might have smaller search cost, it doesn't mean they are always better in general. Firstly, Ball Tree and k-d Tree's query time will become slower as k increases. Secondly, both Ball Tree and k-d Tree require a construction phase. If N is relatively small, the cost of the construction phase might be larger than the total search cost they can save.
 
-*Additional [reference](http://scikit-learn.org/stable/modules/neighbors.html#choice-of-nearest-neighbors-algorithm) for more trade-offs about how to choose a optimal point search algorithm.*
+*Additional [reference](http://scikit-learn.org/stable/modules/neighbors.html#choice-of-nearest-neighbors-algorithm) for more trade-offs about how to choose an optimal point search algorithm.*
 
 ## Demo Code
 
