@@ -25,3 +25,7 @@ Although Ball Tree and k-d Tree might have smaller search cost, it doesn't mean 
 ## Demo Code
 
 [kNN.py](kNN.py) - Revised version of the original kNN demo
+
+[kNNSklearn.py](kNNSklearn.py) - A scikit-learn version of kNN implementation
+
+[kNNPlotter.py](kNNPlotter.py) - The scripts for plotting figures in this chapter
