@@ -16,12 +16,18 @@ This online book covers the basis of neural networks and deep learning, which ar
 
 ## Study Environment
 - Spyder IDE v3.X
+- Libraries:
+    - numpy - for common science computation
+    - matplotlib - for simply scatter and line plotting
+    - pandas - to simplify test data loading
+    - pydotplus - for graphviz based plotting, e.g. tree plotting
+    - sklearn - the high level machine learning framework to demo with
 
 ## Chapters
 
 Part I - Machine Learning in Action
 
-02 [k-Nearest Neighbors](./part1/ch02/README.md)
+- ch02 [k-Nearest Neighbors](./part1/ch02/README.md)
 
 in progress...
 
