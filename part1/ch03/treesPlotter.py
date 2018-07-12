@@ -14,24 +14,26 @@ from trees import *
 def plotTree(treeDic):
     g = createDiGraph()
     for root in treeDic.keys():
-        createNode(root, 'box', g)
+        createNode(root, 'diamond', g)
         for branch in treeDic[root].keys():
             plotBranch(g, treeDic[root][branch], root, branch)
     return createImage(g)
         
 def plotBranch(graph, branchDic, parentName, branchName):
-    leafStyle = None
-    leafColor = None
+    nodeStyle = None
+    nodeColor = None
+    nodeShape = 'diamond'
     if isinstance(branchDic, str):
         childName = branchDic
-        leafStyle = 'filled'
-        leafColor = 'lightgray'
+        nodeStyle = 'filled'
+        nodeColor = 'lightgray'
+        nodeShape = 'box'
     else:
         for name in branchDic.keys():
             childName = name
             for branch in branchDic[childName].keys():
                 plotBranch(graph, branchDic[childName][branch], parentName + '_' + childName, branch)  
-    createNode(parentName + '_' + childName, 'box', graph,  childName, style=leafStyle, fillcolor=leafColor)
+    createNode(parentName + '_' + childName, nodeShape, graph,  childName, style=nodeStyle, fillcolor=nodeColor)
     createEdge(parentName, parentName + '_' + childName, graph, branchName)
 
 # 3.2.2 Figure 3.6 plot test tree
