@@ -16,6 +16,8 @@ In the demo if this chapter, a simple ID3 algorithm is implemented. It is simple
 
 What the ID3 algorithm does on each dataset splitting step is, it tries to calculate the Shannon entropy of the parent dataset and child datasets for each feature, sort the results, and choose the best feature to do the real dataset splitting.
 
+One interesting thing about trees is about tree plotting. In the original demo code of this book, it simply uses the matplotlib for plotting decision trees. It works, but not only the output image not look very nice, but also the code is ugly and hard to read. So in my revised version of potting of trees, I use pydotplus and graphviz library instead to enhance and simplify tree plotting.
+
 ## Demo Code
 
 [trees.py](trees.py) - Revised version of the original trees demo

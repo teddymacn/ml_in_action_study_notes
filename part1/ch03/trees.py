@@ -123,8 +123,8 @@ def chooseBestFeatureToSplitTest():
     myDat,labels=createDataSet()
     return chooseBestFeatureToSplit(myDat)
 
-# 3.1.3 create tree test
-def createTreeTest():
+# 3.1.3 create test tree
+def createTestTree():
     myDat,labels=createDataSet()
     return createTree(myDat,labels)
 
