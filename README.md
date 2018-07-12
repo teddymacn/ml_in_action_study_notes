@@ -28,6 +28,7 @@ This online book covers the basis of neural networks and deep learning, which ar
 Part I - Machine Learning in Action
 
 - ch02 [k-Nearest Neighbors](./part1/ch02/README.md)
+- ch03 [Decision Trees](./part1/ch03/README.md)
 
 in progress...
 
