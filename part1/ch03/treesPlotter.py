@@ -20,14 +20,18 @@ def plotTree(treeDic):
     return createImage(g)
         
 def plotBranch(graph, branchDic, parentName, branchName):
+    leafStyle = None
+    leafColor = None
     if isinstance(branchDic, str):
         childName = branchDic
+        leafStyle = 'filled'
+        leafColor = 'lightgray'
     else:
         for name in branchDic.keys():
             childName = name
             for branch in branchDic[childName].keys():
                 plotBranch(graph, branchDic[childName][branch], parentName + '_' + childName, branch)  
-    createNode(parentName + '_' + childName, 'box', graph,  childName)
+    createNode(parentName + '_' + childName, 'box', graph,  childName, style=leafStyle, fillcolor=leafColor)
     createEdge(parentName, parentName + '_' + childName, graph, branchName)
 
 # 3.2.2 Figure 3.6 plot test tree
