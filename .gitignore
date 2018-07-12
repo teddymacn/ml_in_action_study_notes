@@ -107,4 +107,5 @@ venv.bak/
 part1/ch02/testDigits/
 part1/ch02/trainingDigits/
 .DS*
+part1/ch03/classifierStorage.txt
 

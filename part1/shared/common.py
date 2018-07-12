@@ -3,16 +3,16 @@
 """
 common utilities functions
 
-@author: teddy
+@author: Teddy.Ma
 """
 
 import numpy as np
 import operator as op
 import pandas as pd
 
-# return a sorted dictionary
-def dicSorted(items, desc = True):
-    return sorted(items, key=op.itemgetter(1), reverse=desc)
+# return a sorted dictionary item list
+def dicSorted(dicItems, desc = True):
+    return sorted(dicItems, key=op.itemgetter(1), reverse=desc)
 
 # load a numpy array from txt file
 def loadTable(file):

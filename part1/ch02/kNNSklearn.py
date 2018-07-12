@@ -15,7 +15,6 @@ import sys
 if (sys.path[-1] != '..'): sys.path.append('..')
 
 from shared.common import *
-
 from numpy import *
 from sklearn import neighbors, preprocessing
 from os import listdir
