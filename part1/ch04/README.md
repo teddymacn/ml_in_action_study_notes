@@ -26,5 +26,3 @@ Another limitation of Naive Bayes is the assumption of independent predictors. I
 [bayes.py](bayes.py) - Revised version of the original bayes demo
 
 [bayesSklearn.py](bayesSklearn.py) - A scikit-learn version of bayes implementation
-
-[bayesPlotter.py](bayesPlotter.py) - The scripts for plotting figures in this chapter
