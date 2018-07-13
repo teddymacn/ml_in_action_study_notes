@@ -20,12 +20,13 @@ def dicSorted(dicItems, desc = True):
 def loadTable(file):
     return np.array(pd.read_table(file,header=None))
 
-
+# create a digraph
 def createDiGraph():
     g = dot.Dot();
     g.set_type('digraph')
     return g
 
+# create graph node
 def createNode(name, shape=None, graph=None, label=None, style=None, fillcolor=None):
     node = dot.Node(name)
     if shape is not None: node.set("shape", shape)
@@ -35,12 +36,14 @@ def createNode(name, shape=None, graph=None, label=None, style=None, fillcolor=N
     if fillcolor is not None: node.set('fillcolor', fillcolor)
     return node
 
+# create a graph edge
 def createEdge(src, dst, graph=None, label=None):
     edge = dot.Edge(src, dst)
     if graph is not None: graph.add_edge(edge)
     if label is not None: edge.set('label', label)
     return edge
 
+# create image from graph
 def createImage(graph):
     return Image(graph.create_png())
 
