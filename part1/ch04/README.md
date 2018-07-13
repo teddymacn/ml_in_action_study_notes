@@ -8,7 +8,7 @@ For example, a fruit may be considered to be an apple if it is red, round, and a
 
 The Maths basis of Naive Bayes is the statistical class frequency and likelihood, and the Bayes' theorem equation. It enables the calculation of the posterior probability P(c|x), where P(c|x) means the propbability of the predictor x in class c. As long as each feature of a predictor x independently contributes to the probability of x in class c, we could calculate P(c|x) from P(c), P(x) and P(x|c), which can be easily calculated from the training dataset.
 
-![](bayes_rule.jpg)
+![](bayes_equation.jpg)
 
 - P(c|x) is the posterior probability of class c given predictor x
 - P(c) is the prior probability of class c
