@@ -15,7 +15,7 @@ The Maths basis of Naive Bayes is the statistical class frequency and likelihood
 - P(x|c) is the likelihood which is the probability of predictor x given class c
 - P(x) is the prior probability of predictor x
 
-The main pro of Naive Bayes algorithm is it is simply to understand and implement, and super fast to predict class of test dataset, and it doesn't need large training data. So it is commonly used for real time prediction scenarios such as recommendation and spam filtering.
+The main pro of Naive Bayes algorithm is it is simple to understand and implement, and super fast to predict class of test dataset, and it doesn't need large training data. So it is commonly used for real time prediction scenarios such as recommendation and spam filtering.
 
 The main potential issue Naive Bayes algorithm is if the actual class of a test record was not observed in training dataset, then model will assign a 0 probability and will be unable to make a prediction. This is often known as "Zero Frequency". To solve this, we have to use smoothing techniques such as the [Laplace smoothing](https://en.wikipedia.org/wiki/Additive_smoothing).
 
