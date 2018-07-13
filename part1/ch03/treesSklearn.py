@@ -38,7 +38,6 @@ def classifyTest():
 
 def plotTree():
     clf,labels = createTreeClf()
-    dotfile = open("test.dot", 'w')
-    with dotfile: tree.export_graphviz(clf, out_file = dotfile)
-    graph = pydotplus.graphviz.graph_from_dot_file("test.dot")
+    dot_data = tree.export_graphviz(clf, out_file=None)    
+    graph = pydotplus.graph_from_dot_data(dot_data)
     return createImage(graph)
