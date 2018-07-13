@@ -29,6 +29,7 @@ Part I - Machine Learning in Action
 
 - ch02 [k-Nearest Neighbors](./part1/ch02/README.md)
 - ch03 [Decision Trees](./part1/ch03/README.md)
+- ch04 [Naive Bayes](./part1/ch04/README.md)
 
 in progress...
 
