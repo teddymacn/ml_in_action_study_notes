@@ -29,6 +29,7 @@ def setOfWords2Vec(vocabList, inputSet):
         else: print("the word: %s is not in my Vocabulary!" % word)
     return returnVec
 
+# 4.5.2 Naïve Bayes classifier training 
 def trainNB0(trainMatrix,trainCategory):
     numTrainDocs = len(trainMatrix)
     numWords = len(trainMatrix[0])
@@ -61,6 +62,7 @@ def bagOfWords2VecMN(vocabList, inputSet):
             returnVec[vocabList.index(word)] += 1
     return returnVec
 
+# 4.5.3 test Naïve Bayes classifier
 def testingNB():
     listOPosts,listClasses = loadDataSet()
     myVocabList = createVocabList(listOPosts)
@@ -80,6 +82,7 @@ def textParse(bigString):    #input is big string, #output is word list
     listOfTokens = re.split(r'\W*', bigString)
     return [tok.lower() for tok in listOfTokens if len(tok) > 2] 
     
+# test spam email
 def spamTest():
     docList=[]; classList = []; fullText =[]
     for i in range(1,26):
