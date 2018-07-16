@@ -8,9 +8,9 @@ k-Nearest Neighbors is one of the neighbors based algorithms. It is most commonl
 
 The basic idea of k-Nearest Neighbors is: it does not attempt to construct a general internal model, but simply stores instances of the training data. A simplest implementation considers the majority vote of each of the k nearest neighbors to be with a uniform weight, which is what we do in the demo code of this chapter. Another option, which works better in some circumstances, is to weight the majority votes of nearer neighbors more than those of the far away ones.
 
-## Variations
+## Variants
 
-The variations of neighbors based algorithms are mainly different in how to choose points and how many points to choose to compare the distance with.
+The variants of neighbors based algorithms are mainly different in how to choose points and how many points to choose to compare the distance with.
 
 In the demo code of this chapter, when searching points to choose the k nearest neighbors, we are using a simple brute force algorithm, meaning to compare distance of each point pair in the training data. It's cost is O(DN), where D means number of dimentionality and N means number of points. 
 
