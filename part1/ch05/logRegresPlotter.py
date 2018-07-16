@@ -49,14 +49,14 @@ def plotBestFitGradAscent():
     plotBestFit(weights)
     
 
-# 5.2.4 plot for StocGradAscent0
+# 5.2.4 plot BestFit for StocGradAscent0
 def plotBestFitStocGradAscent0():
     dataArr,labelMat = loadDataSet()
     weights = stocGradAscent0(array(dataArr),labelMat)
     print (weights)
     plotBestFit(weights)
 
-# 5.2.4 plot for StocGradAscent1
+# 5.2.4 plot BestFit for StocGradAscent1
 def plotBestFitStocGradAscent1():
     dataArr,labelMat = loadDataSet()
     weights = stocGradAscent1(array(dataArr),labelMat)
