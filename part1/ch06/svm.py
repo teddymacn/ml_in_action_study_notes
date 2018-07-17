@@ -185,7 +185,7 @@ def calcWs(alphas,dataArr,classLabels):
     for i in range(m):
         w += multiply(alphas[i]*labelMat[i],X[i,:].T)
     return w
-
+    
 # 6.5.3 Radial bias test
 def testRbf(k1=1.3):
     dataArr,labelArr = loadDataSet('testSetRBF.txt')

@@ -17,11 +17,16 @@ def loadDataSet(fileName):
     labelMat = list(data[:,2])
     return dataMat,labelMat
 
-# 6.5.3 Radial bias test
-def testRbf(k1=1.3):
-    dataArr,labelArr = loadDataSet('testSetRBF.txt')
+def svcFit(dataArr, labelArr):
     clf = SVC()
     clf.fit(array(dataArr), array(labelArr))
+    return clf    
+
+# 6.5.3 Radial bias test
+def testRbf():
+    dataArr,labelArr = loadDataSet('testSetRBF.txt')
+    clf = svcFit(dataArr,labelArr)
+    print("there are %d Support Vectors" % clf.n_support_[0])
     errorCount = 0
     for i in range(len(labelArr)):
         predict=clf.predict([dataArr[i]])[0]
@@ -61,8 +66,8 @@ def loadImages(dirName):
 # 6.6 revisit handwriting classification
 def testDigits(kTup=('rbf', 10)):
     dataArr,labelArr = loadImages('trainingDigits')
-    clf = SVC()
-    clf.fit(array(dataArr), array(labelArr))
+    clf = svcFit(dataArr,labelArr)
+    print("there are %d Support Vectors" % clf.n_support_[0])
     errorCount = 0
     for i in range(len(labelArr)):
         predict=clf.predict([dataArr[i]])[0]
@@ -70,7 +75,6 @@ def testDigits(kTup=('rbf', 10)):
     print("the training error rate is: %f" % (float(errorCount)/len(dataArr)))
     dataArr,labelArr = loadImages('testDigits')
     errorCount = 0
-    for i in range(m):
     for i in range(len(labelArr)):
         predict=clf.predict([dataArr[i]])[0]
         if sign(predict)!=sign(labelArr[i]): errorCount += 1
