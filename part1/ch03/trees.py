@@ -143,8 +143,7 @@ def storeGrabTreeTest():
 
 # 3.4 create lenses tree
 def createLensesTree():
-    fr=open('lenses.txt')
-    lenses=[inst.strip().split('\t') for inst in fr.readlines()]
+    lenses=loadTable('lenses.txt').tolist()
     lensesLabels=['age', 'prescript', 'astigmatic', 'tearRate']
     return createTree(lenses,lensesLabels)
     
