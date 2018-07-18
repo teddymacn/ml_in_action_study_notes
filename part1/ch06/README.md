@@ -12,6 +12,10 @@ The main benefits of SVM are:
 - It is memory efficient
 - It is versatile by specifying different kernel functions
 
+In the demo code:
+- The smoSimple algorithm works for linear classification on small dataset
+- The smoP algorithm works together with radial bias function, which can map 2D data to 3D to do higher dimensional linear classification, works for non-linear dataset
+
 ## Demo Code
 
 [svm.py](svm.py) - Revised version of the original svm demo
