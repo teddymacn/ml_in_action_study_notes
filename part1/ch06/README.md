@@ -6,9 +6,9 @@ Support Vector Machine is one of the most powerful and widely used algorithms in
 
 Why we say it is the most tough algorithm so far is coz the algorithms to implement SVM requires quite advanced Maths knowledge in linear algebra. In the demo code, you will see quite heavy linear algebra computations. So to understand the code, you might have to review your linear algebra knowledge and to get some practice in python numpy matrix computations first.
 
-When doing simple linear classification, the only strength of SVM is its memory efficiency.
+When doing simple classification on linear dataset, the only strength of SVM is its memory efficiency.
 
-But what really makes SVM be so important and attractive from other classification algorithms is how it work with non-linear datasets. Different from those regression based tools which try to fit a list of weights of a complex equation, which requires exponentially growing heavey computation, the idea in SVM is, as long as you can find a suitable kernel function, you can map your non-linear dataset from lower dimention to higher dimention, so that you can do cheap linear classification in higher dimention to solve the original non-linear problems.
+But what really makes SVM be so important and attractive against other classification algorithms is how it works with non-linear datasets. Different from those regression based tools which try to fit a list of weights of a complex higher order equation, which requires exponentially growing heavey computation, the idea in SVM is, as long as you can find a suitable kernel function, you can map your non-linear dataset from lower dimention to higher dimention, so that you can do cheap linear classification in higher dimention to solve the original non-linear classification problem in lower dimention.
 
 In the demo code:
 - The smoSimple algorithm works for linear classification on small dataset
