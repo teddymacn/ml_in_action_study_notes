@@ -32,6 +32,7 @@ Part I - Machine Learning in Action
 - ch04 [Naive Bayes](./part1/ch04/README.md)
 - ch05 [Logistic Regression](./part1/ch05/README.md)
 - ch06 [Support Vector Machine](./part1/ch06/README.md)
+- ch07 [AdaBoost](./part1/ch07/README.md)
 
 in progress...
 
