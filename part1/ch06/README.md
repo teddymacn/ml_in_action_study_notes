@@ -8,7 +8,7 @@ Why we say it is the most tough algorithm so far is coz the algorithms to implem
 
 When doing simple classification on linear dataset, the only strength of SVM is its memory efficiency.
 
-But what really makes SVM be so important and attractive against other classification algorithms is how it works with non-linear datasets. Different from those regression based tools which try to fit a list of weights of a complex higher order equation, which requires exponentially growing heavey computation, the idea in SVM is, as long as you can find a suitable kernel function, you can map your non-linear dataset from lower dimention to higher dimention, so that you can do cheap linear classification in higher dimention to solve the original non-linear classification problem in lower dimention.
+But what really makes SVM be so important and attractive against other classification algorithms is how it works with non-linear datasets. Different from those regression based tools such as [polynomial regression](https://en.wikipedia.org/wiki/Polynomial_regression), which tries to fit a higher order equation and requires exponentially growing heavey computation, the idea of SVM is, as long as you can find a suitable kernel function, you can map your non-linear dataset from lower dimention to higher dimention, so that you can do cheap linear classification in higher dimention to solve the original non-linear classification problem in lower dimention.
 
 In the demo code:
 - The smoSimple algorithm works for linear classification on small dataset

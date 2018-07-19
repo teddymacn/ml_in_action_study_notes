@@ -1,6 +1,6 @@
 # AdaBoost
 
-Chapter 7 of this book talks about a new category of machine learning algorithms, which are called as ensemble methods.
+Chapter 7 of this book talks about a new category of machine learning algorithms, which are called ensemble methods.
 
 The word "ensemble" means to combine the predictions of several estimators rather than depending on a single one.
 

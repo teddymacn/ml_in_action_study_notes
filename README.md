@@ -27,12 +27,15 @@ This online book covers the basis of neural networks and deep learning, which ar
 
 Part I - Machine Learning in Action
 
-- ch02 [k-Nearest Neighbors](./part1/ch02/README.md)
-- ch03 [Decision Trees](./part1/ch03/README.md)
-- ch04 [Naive Bayes](./part1/ch04/README.md)
-- ch05 [Logistic Regression](./part1/ch05/README.md)
-- ch06 [Support Vector Machine](./part1/ch06/README.md)
-- ch07 [AdaBoost](./part1/ch07/README.md)
+- Supervised Learning
+    - ch02 [k-Nearest Neighbors](./part1/ch02/README.md)
+    - ch03 [Decision Trees](./part1/ch03/README.md)
+    - ch04 [Naive Bayes](./part1/ch04/README.md)
+    - ch05 [Logistic Regression](./part1/ch05/README.md)
+    - ch06 [Support Vector Machine](./part1/ch06/README.md)
+    - ch07 [AdaBoost](./part1/ch07/README.md)
+    - ch08 [Linear Regression](./part1/ch08/README.md)
+    - ch09 [Tree-based Regression](./part1/ch09/README.md)
 
 in progress...
 
