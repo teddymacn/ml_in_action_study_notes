@@ -5,14 +5,14 @@ Chapter 8 talks about Linear Regression. Linear Regression is perhaps one of the
 Many people like me heard about Linear Regression the first time in the linear algebra lectures in college. To recall a little bit, in linear algebra:
 - Given y is a N&#00215;1 matrix and equals to a linear combination of a N&#00215;(M+1) matrix X;
 - The first column of X is all constant 1, represents the constants part of the linear combination;
-- w is a (M+1)&#00215;1 matrix, which is the weight of the linear combination
+- w is a (M+1)&#00215;1 matrix, which is the weights of the linear combination
 - And given N >= M， which is necessary, otherwise X becomes sigular and X&#00175;&#00185; not exists
 - So we have: y = Xw
 - And then we get: w = (X&#07488;X)&#00175;&#00185;X&#07488;y
 
-With the fomula above, and since we already have the training data X and y, as long as the number of features and training examples N and M is not too large value, we are able to compute out the weights w by the linear algebra operations directly. 
+With the fomula above, and since we already have the training data X and y, as long as the numbers of features and training examples N and M are not too large values, we are able to compute out the weights w by linear algebra operations directly. 
 
-The linear algebra way is perfect for small training dataset. But when we have much more features or training examples, the computation cost grows up exponentially and might become inefficient in computation. Then we need a more efficient algorithm to fit the weights, and the most popular way is called Gradient Descent. This book doesn't talk too much about Gradient Descent for Linear Regression, which is really a shame.
+The linear algebra way is perfect for small training datasets. But when we have much more features or training examples, the computation cost grows up exponentially and might become inefficient in computation. Then we need a more efficient algorithm to fit the weights, and the most popular way is called Gradient Descent. This book doesn't talk too much about Gradient Descent for fitting Linear Regression, which is really a shame.
 
 8.4.1 talks about a popular variant of linear regression which is called Ridge Regression. Ridge Regression was originally developed to deal with the problem of having more features than training examples. But it can also be used to add bias into our estimations to decrease unimportant parameters. This decreasing is known as shrinkage in statistics. The fomula of w in Ridge Regression becomes:
 
