@@ -15,7 +15,7 @@ Part II - Study notes of the free online book "[Neural Networks and Deep Learnin
 This online book covers the basis of neural networks and deep learning, which are very good supplements to Part I.
 
 ## Study Environment
-- Spyder IDE v3.X
+- Spyder IDE v3.X with Python 3.X
 - Libraries:
     - numpy - for common science computation
     - matplotlib - for simply scatter and line plotting
