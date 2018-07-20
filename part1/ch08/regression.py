@@ -3,21 +3,20 @@ regression Source Code for chatpter 8
 
 @author: Teddy.Ma
 '''
-from numpy import *
+import sys
+if (sys.path[-1] != '..'): sys.path.append('..')
 
-def loadDataSet(fileName):      #general function to parse tab -delimited floats
-    numFeat = len(open(fileName).readline().split('\t')) - 1 #get number of fields 
-    dataMat = []; labelMat = []
-    fr = open(fileName)
-    for line in fr.readlines():
-        lineArr =[]
-        curLine = line.strip().split('\t')
-        for i in range(numFeat):
-            lineArr.append(float(curLine[i]))
-        dataMat.append(lineArr)
-        labelMat.append(float(curLine[-1]))
+from shared.common import *
+from numpy import *
+import matplotlib.pyplot as plt
+
+def loadDataSet(fileName):
+    data = loadTable(fileName)
+    dataMat = data[:,:data.shape[1] - 1].tolist()
+    labelMat = data[:,data.shape[1] - 1].tolist()
     return dataMat,labelMat
 
+# 8.1 standard linear algebra based regression
 def standRegres(xArr,yArr):
     xMat = mat(xArr); yMat = mat(yArr).T
     xTx = xMat.T*xMat
@@ -27,6 +26,27 @@ def standRegres(xArr,yArr):
     ws = xTx.I * (xMat.T*yMat)
     return ws
 
+# 8.1 test ex0.txt with standRegres():
+def testEx0StandRegres():
+    xArr,yArr=loadDataSet('ex0.txt')
+    ws = standRegres(xArr,yArr)
+    
+    xMat=mat(xArr)
+    yMat=mat(yArr)
+    yHat = xMat*ws
+    fig = plt.figure()
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.scatter(xMat[:,1].flatten().A[0], yMat.T[:,0].flatten().A[0])
+    xCopy=xMat.copy()
+    xCopy.sort(0)
+    yHat=xCopy*ws
+    ax.plot(xCopy[:,1],yHat)
+    plt.show()
+    
+    return ws;
+
+# 8.2 Locally weighted linear regression
 def lwlr(testPoint,xArr,yArr,k=1.0):
     xMat = mat(xArr); yMat = mat(yArr).T
     m = shape(xMat)[0]
@@ -41,6 +61,7 @@ def lwlr(testPoint,xArr,yArr,k=1.0):
     ws = xTx.I * (xMat.T * (weights * yMat))
     return testPoint * ws
 
+# 8.2 Locally weighted linear regression test
 def lwlrTest(testArr,xArr,yArr,k=1.0):  #loops over all the data points and applies lwlr to each one
     m = shape(testArr)[0]
     yHat = zeros(m)
@@ -48,17 +69,56 @@ def lwlrTest(testArr,xArr,yArr,k=1.0):  #loops over all the data points and appl
         yHat[i] = lwlr(testArr[i],xArr,yArr,k)
     return yHat
 
-def lwlrTestPlot(xArr,yArr,k=1.0):  #same thing as lwlrTest except it sorts X first
-    yHat = zeros(shape(yArr))       #easier for plotting
-    xCopy = mat(xArr)
-    xCopy.sort(0)
-    for i in range(shape(xArr)[0]):
-        yHat[i] = lwlr(xCopy[i],xArr,yArr,k)
-    return yHat,xCopy
+# 8.2 test lwlr
+def testEx0Lwlr():
+    xArr,yArr=loadDataSet('ex0.txt')
+    yHat = lwlrTest(xArr, xArr, yArr,0.003)
+    xMat=mat(xArr)
+    srtInd = xMat[:,1].argsort(0)
+    xSort=xMat[srtInd][:,0,:]
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.plot(xSort[:,1],yHat[srtInd])
+    ax.scatter(xMat[:,1].flatten().A[0], mat(yArr).T.flatten().A[0] , s=2,
+c='red')
+    plt.show()
 
 def rssError(yArr,yHatArr): #yArr and yHatArr both need to be arrays
     return ((yArr-yHatArr)**2).sum()
 
+# 8.3 test lwlr
+def testAbaloneLwlr():
+    abX,abY=loadDataSet('abalone.txt')
+    
+    yHat01=lwlrTest(abX[0:99],abX[0:99],abY[0:99],0.1)
+    yHat1=lwlrTest(abX[0:99],abX[0:99],abY[0:99],1)
+    yHat10=lwlrTest(abX[0:99],abX[0:99],abY[0:99],10)
+    rssError(abY[0:99],yHat01.T)
+    rssError(abY[0:99],yHat1.T)
+    rssError(abY[0:99],yHat10.T)
+    
+    yHat01=lwlrTest(abX[100:199],abX[0:99],abY[0:99],0.1)
+    rssError(abY[100:199],yHat01.T)
+    yHat1=lwlrTest(abX[100:199],abX[0:99],abY[0:99],1)
+    rssError(abY[100:199],yHat1.T)
+    yHat10=lwlrTest(abX[100:199],abX[0:99],abY[0:99],10)
+    rssError(abY[100:199],yHat10.T)
+    
+    ws = standRegres(abX[0:99],abY[0:99])
+    yHat=mat(abX[100:199])*ws
+    rssError(abY[100:199],yHat.T.A)
+    
+    xArr,yArr = abX[100:199],abY[100:199]
+    xMat=mat(xArr)
+    srtInd = xMat[:,1].argsort(0)
+    xSort=xMat[srtInd][:,0,:]
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.plot(array(xSort[:,1].T)[0],array(yHat[srtInd]).T[0][0])
+    ax.scatter(xMat[:,1].flatten().A[0], mat(yArr).T.flatten().A[0], s=2, c='red')
+    plt.show()
+
+# 8.4 Ridge regression
 def ridgeRegres(xMat,yMat,lam=0.2):
     xTx = xMat.T*xMat
     denom = xTx + eye(shape(xMat)[1])*lam
@@ -68,6 +128,7 @@ def ridgeRegres(xMat,yMat,lam=0.2):
     ws = denom.I * (xMat.T*yMat)
     return ws
     
+# 8.4.1 Ridge regression test
 def ridgeTest(xArr,yArr):
     xMat = mat(xArr); yMat=mat(yArr).T
     yMean = mean(yMat,0)
@@ -83,6 +144,15 @@ def ridgeTest(xArr,yArr):
         wMat[i,:]=ws.T
     return wMat
 
+# 8.4.1 Figure 8.6 test and plot Ridge regression with abalone dataset
+def testAbaloneRidgeRegres():
+    abX,abY=loadDataSet('abalone.txt')
+    ridgeWeights=ridgeTest(abX,abY)
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.plot(ridgeWeights)
+    plt.show()
+
 def regularize(xMat):#regularize by columns
     inMat = xMat.copy()
     inMeans = mean(inMat,0)   #calc mean then subtract it off
@@ -90,13 +160,14 @@ def regularize(xMat):#regularize by columns
     inMat = (inMat - inMeans)/inVar
     return inMat
 
+# 8.4.3 Forward stagewise linear regression
 def stageWise(xArr,yArr,eps=0.01,numIt=100):
     xMat = mat(xArr); yMat=mat(yArr).T
     yMean = mean(yMat,0)
     yMat = yMat - yMean     #can also regularize ys but will get smaller coef
     xMat = regularize(xMat)
     m,n=shape(xMat)
-    #returnMat = zeros((numIt,n)) #testing code remove
+    returnMat = zeros((numIt,n)) #testing code remove
     ws = zeros((n,1)); wsTest = ws.copy(); wsMax = ws.copy()
     for i in range(numIt):
         print (ws.T)
@@ -111,46 +182,28 @@ def stageWise(xArr,yArr,eps=0.01,numIt=100):
                     lowestError = rssE
                     wsMax = wsTest
         ws = wsMax.copy()
-        #returnMat[i,:]=ws.T
-    #return returnMat
+        returnMat[i,:]=ws.T
+    return returnMat
 
-#def scrapePage(inFile,outFile,yr,numPce,origPrc):
-#    from BeautifulSoup import BeautifulSoup
-#    fr = open(inFile); fw=open(outFile,'a') #a is append mode writing
-#    soup = BeautifulSoup(fr.read())
-#    i=1
-#    currentRow = soup.findAll('table', r="%d" % i)
-#    while(len(currentRow)!=0):
-#        title = currentRow[0].findAll('a')[1].text
-#        lwrTitle = title.lower()
-#        if (lwrTitle.find('new') > -1) or (lwrTitle.find('nisb') > -1):
-#            newFlag = 1.0
-#        else:
-#            newFlag = 0.0
-#        soldUnicde = currentRow[0].findAll('td')[3].findAll('span')
-#        if len(soldUnicde)==0:
-#            print "item #%d did not sell" % i
-#        else:
-#            soldPrice = currentRow[0].findAll('td')[4]
-#            priceStr = soldPrice.text
-#            priceStr = priceStr.replace('$','') #strips out $
-#            priceStr = priceStr.replace(',','') #strips out ,
-#            if len(soldPrice)>1:
-#                priceStr = priceStr.replace('Free shipping', '') #strips out Free Shipping
-#            print "%s\t%d\t%s" % (priceStr,newFlag,title)
-#            fw.write("%d\t%d\t%d\t%f\t%s\n" % (yr,numPce,newFlag,origPrc,priceStr))
-#        i += 1
-#        currentRow = soup.findAll('table', r="%d" % i)
-#    fw.close()
+# 8.4.3 test stageWise
+def testAbaloneStageWise():
+    xArr,yArr=loadDataSet('abalone.txt')
+    weights = stageWise(xArr,yArr,0.01,200)
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.plot(weights)
+    plt.show()
     
+# 8.6.1 Shopping information retrieval function
+# the URL below no longer works!!! please use the code only as a reference
 from time import sleep
 import json
-import urllib2
+import urllib.request
 def searchForSet(retX, retY, setNum, yr, numPce, origPrc):
     sleep(10)
     myAPIstr = 'AIzaSyD2cR2KFyx12hXu6PFU-wrWot3NXvko8vY'
     searchURL = 'https://www.googleapis.com/shopping/search/v1/public/products?key=%s&country=US&q=lego+%d&alt=json' % (myAPIstr, setNum)
-    pg = urllib2.urlopen(searchURL)
+    pg = urllib.request.urlopen(searchURL)
     retDict = json.loads(pg.read())
     for i in range(len(retDict['items'])):
         try:
