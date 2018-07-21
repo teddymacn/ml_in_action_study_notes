@@ -36,6 +36,8 @@ Part I - Machine Learning in Action
     - ch07 [AdaBoost](./part1/ch07/README.md)
     - ch08 [Linear Regression](./part1/ch08/README.md)
     - ch09 [Tree-based Regression](./part1/ch09/README.md)
+- Unsupervised Learning
+    - ch10 [K-means Clustering](./part1/ch10/README.md)
 
 in progress...
 
