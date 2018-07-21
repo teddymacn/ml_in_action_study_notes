@@ -10,7 +10,7 @@ This algorithm works like this: first, randomly pick k points from the dataset a
 2. Assign the data points to the cluster of the centroid with nearest distance;
 3. Calculate new centroids based on the mean values of the coordinates of all the data points from the corresponding cluster.
 
-Given enough time, K-means will always converge, however similar to the problem of Gradien Descent in Polynomial Regression, it might converge to a local minimum rather than a global minimum. The result highly depends on the initial centroids it chose. Some enhancements for this issue include:
+Given enough time, K-means will always converge, however similar to the problem of Gradien Descent in Polynomial Regression, it might converge to a local minimum rather than a global minimum. The result highly depends on the initial centroids it chose. Some enhancements for this issue include but not limit to:
 
 - To run several times of K-means on the same dataset;
 - To choose the initial centroids which are generally distant from each other;
