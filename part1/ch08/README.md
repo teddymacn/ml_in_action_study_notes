@@ -20,12 +20,10 @@ w = (X&#07488;X + &#00955;I)&#00175;&#00185;X&#07488;y
 
 Here the note I after &#00955; represents an identity matrix and &#00955; is a constant scalar value as a penalty. In practice, before fitting the weights, we need to specify the value of &#00955; first. So usually we will run the fitting procedure multiple times with different values for &#00955;, and finally we can get a (&#00955;,w) combination which could give us the least error rate from all the &#00955;s.
 
-Furthermore, in reality, very rare cases we have a linear dataset directly, when it is for a non-linear dataset, we will need to fit the weights of higher order combination of x to y, something like y = w&#008320; + w&#008321;x&#008321; + w&#008322;x&#008322;&#00178; + ..., this is called [Polynomial Regression](https://en.wikipedia.org/wiki/Polynomial_regression). But we could treat the mapping of [x&#008321; x&#008322; ...] to [x&#008321; x&#008322;&#00178; ...] as a preprocessing of a Linear Regression. So that we could use Linear Regression to implement Polynomial Regression. It is again one more shame that this book doesn't talk about Polynomial Regression at all, which is actually more often to happen in real life datasets than simple Linear Regression.
+Furthermore, in reality, very rare cases we have a linear dataset directly, when it is for a non-linear dataset, we might want to fit the weights of higher order combination of x to y, something like y = w&#008320; + w&#008321;x&#008321; + w&#008322;x&#008322;&#00178; + ..., this is called [Polynomial Regression](https://en.wikipedia.org/wiki/Polynomial_regression). But we could treat the mapping of [x&#008321; x&#008322; ...] to [x&#008321; x&#008322;&#00178; ...] as a preprocessing of a Linear Regression. So that we could use Linear Regression to implement Polynomial Regression. It is again one more shame that this book doesn't talk about Polynomial Regression at all, which is actually more often to happen in real life datasets than simple Linear Regression.
 
-I'd like to recommend Andrew Ng's popular [machine learning course on coursera](https://www.coursera.org/learn/machine-learning) again, the first several chapters of which step-by-step introduce Linear Regression and how to use Gradient Descent to fit the weights, including the case of having the penalty &#00955; and the cases of polynomial regression.
+I'd like to recommend Andrew Ng's popular [machine learning course on coursera](https://www.coursera.org/learn/machine-learning) again, the first several chapters of which step-by-step introduce Linear Regression and how to use Gradient Descent to fit the weights, including the case of having the penalty &#00955; and the cases of polynomial regression, etc.
 
 ## Demo Code
 
 [regression.py](regression.py) - Revised version of the original regression demo
-
-[regressionSklearn.py](regressionSklearn.py) - A scikit-learn version of regression implementation
