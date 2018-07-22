@@ -11,6 +11,7 @@ if (sys.path[-1] != '..'): sys.path.append('..')
 from shared.common import *
 
 from numpy import *
+from sklearn.cluster import KMeans
 
 def loadDataSet(fileName):      #general function to parse tab -delimited floats
     return loadTable(fileName)
@@ -55,6 +56,13 @@ def testTestSetKMeans():
     myCentroids, clustAssing = kMeans(datMat,4)
     return myCentroids
 
+# 10.1 test kMeans on test dataset
+def testTestSetKMeansSklearn():
+    datMat=mat(loadDataSet('testSet.txt'))
+    kmeans = KMeans(n_clusters=4).fit(datMat)
+    myCentroids = kmeans.cluster_centers_
+    return myCentroids
+
 # 10.3 Bisecting k-means
 def biKmeans(dataSet, k, distMeas=distEclud):
     m = shape(dataSet)[0]
@@ -86,7 +94,7 @@ def biKmeans(dataSet, k, distMeas=distEclud):
     return mat(centList), clusterAssment
 
 # 10.3 test biKmeans on test dataset 2
-def testTestSetKMeans():
+def testTestSet2BiKMeans():
     datMat=mat(loadDataSet('testSet2.txt'))
     myCentroids, clustAssing = biKmeans(datMat,3)
     return myCentroids
