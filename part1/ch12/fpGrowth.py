@@ -137,5 +137,5 @@ def testMushroomsDataSetMineTree():
     freqItems = []
     initSet = createInitSet(mushDatSet)
     myFPtree, myHeaderTab = createTree(initSet, 3)
-    return mineTree(myFPtree, myHeaderTab, 3, set([]), freqItems), freqItems
+    mineTree(myFPtree, myHeaderTab, 3, set([]), freqItems), freqItems
     
