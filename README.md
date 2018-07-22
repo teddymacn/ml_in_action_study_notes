@@ -38,6 +38,7 @@ Part I - Machine Learning in Action
     - ch09 [Tree-based Regression](./part1/ch09/README.md)
 - Unsupervised Learning
     - ch10 [K-means Clustering](./part1/ch10/README.md)
+    - ch10 [Apriori](./part1/ch11/README.md)
 
 in progress...
 
