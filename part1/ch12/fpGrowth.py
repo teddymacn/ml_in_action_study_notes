@@ -132,10 +132,4 @@ def createInitSet(dataSet):
         retDict[frozenset(trans)] = 1
     return retDict
 
-def testMushroomsDataSetMineTree():
-    mushDatSet = [line.split() for line in open('../ch11/mushroom.dat').readlines()]
-    freqItems = []
-    initSet = createInitSet(mushDatSet)
-    myFPtree, myHeaderTab = createTree(initSet, 3)
-    mineTree(myFPtree, myHeaderTab, 3, set([]), freqItems), freqItems
     
