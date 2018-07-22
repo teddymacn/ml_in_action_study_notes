@@ -113,8 +113,8 @@ def pntRules(ruleList, itemMeaning):
             print (itemMeaning[item])
         print ("confidence: %f" % ruleTup[2])
         print()       #print a blank line
-        
-# 11.6 test apriori on mushrooms
+    
+# 11.6 test apriori on mushrooms, too slow on my macbook pro, DON'T RUN!
 def testMushroomsApriori():
     mushDatSet = [line.split() for line in open('mushroom.dat').readlines()]
     L,suppData = apriori(mushDatSet, minSupport=0.3)

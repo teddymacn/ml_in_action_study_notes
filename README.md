@@ -39,6 +39,7 @@ Part I - Machine Learning in Action
 - Unsupervised Learning
     - ch10 [K-means Clustering](./part1/ch10/README.md)
     - ch11 [Apriori](./part1/ch11/README.md)
+    - ch12 [FP-growth](./part1/ch12/README.md)
 
 in progress...
 
