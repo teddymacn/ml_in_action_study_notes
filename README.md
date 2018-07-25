@@ -40,6 +40,10 @@ Part I - Machine Learning in Action
     - ch10 [K-means Clustering](./part1/ch10/README.md)
     - ch11 [Apriori](./part1/ch11/README.md)
     - ch12 [FP-growth](./part1/ch12/README.md)
+- Additional Tools
+    - ch13 [Principal Component Analysis (PCA)](./part1/ch13/README.md)
+    - ch14 [Singular
+Value Decomposition (SVD)](./part1/ch14/README.md)
 
 in progress...
 
