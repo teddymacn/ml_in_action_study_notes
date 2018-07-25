@@ -10,11 +10,11 @@ Many people like me heard about Linear Regression the first time in the linear a
 - So we have: y = Xw
 - And then we get: w = (X&#07488;X)&#00175;&#00185;X&#07488;y
 
-With the fomula above, and since we already have the training data X and y, as long as the numbers of features and training examples N and M are not too large values, we are able to compute out the weights w by linear algebra operations directly. 
+With the formula above, and since we already have the training data X and y, as long as the numbers of features and training examples N and M are not too large values, we are able to compute out the weights w by linear algebra operations directly. 
 
 The linear algebra way is perfect for small training datasets. But when we have much more features or training examples, the computation cost grows up exponentially and might become inefficient in computation. Then we need a more efficient algorithm to fit the weights, and the most popular way is called Gradient Descent. This chapter doesn't talk too much about Gradient Descent for fitting Linear Regression, which is a shame. But it is already discussed and demonstrated in [Logistic Regression](../ch05/README.md) in chapter 5, you can use the exact same algorithm in Linear Regression for fitting large training dataset.
 
-8.4.1 talks about a popular variant of Linear Regression which is called Ridge Regression. Ridge Regression was originally developed to deal with the problem of having more features than training examples. But it can also be used to add bias into our estimations to decrease unimportant parameters. This decreasing is known as shrinkage in statistics. The fomula of w in Ridge Regression becomes:
+8.4.1 talks about a popular variant of Linear Regression which is called Ridge Regression. Ridge Regression was originally developed to deal with the problem of having more features than training examples. But it can also be used to add bias into our estimations to decrease unimportant parameters. This decreasing is known as shrinkage in statistics. The formula of w in Ridge Regression becomes:
 
 w = (X&#07488;X + &#00955;I)&#00175;&#00185;X&#07488;y
 
