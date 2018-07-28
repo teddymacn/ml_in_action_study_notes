@@ -1,13 +1,13 @@
 # Principal Component Analysis (PCA)
 
-Since Chapter 13, this book talks about several dimensionality reduction techniques for supporting machine learning, including Principal Component Analysis (PCA) and Singular
+Since Chapter 13, this book talks about several dimensionality reduction techniques in machine learning, including Principal Component Analysis (PCA) and Singular
 Value Decomposition (SVD).
 
-Dimensionality reduction is quite important in machine learning especially when we have hundreds or sometimes thousands of features. It helps in:
-- Making the dataset easier to use
-- Reducing computational cost of many algorithms
-- Removing noise
-- Making the results easier to understand
+Dimensionality reduction is quite important in machine learning especially when we have hundreds or sometimes even thousands of features. It helps in:
+- Making the dataset easier to use;
+- Reducing computational cost of many algorithms;
+- Removing noise;
+- Making the results easier to understand;
 
 Dimensionality reduction is useful, but please always realize that it actually drops some information from the original dataset. So only do dimensionality reduction when you have to.
 
@@ -22,7 +22,7 @@ Chapter 13 talks about PCA which is one of the most widely used dimensionality r
 7. Transform the data into the new space created by the top N eigenvectors;
 8. Add back the mean of step 1 to each value of the new matrix;
 
-Why PCA works is because, the eigenvalues actually represents the importance of the related data in the matrix, so if we remove related data of some small eigenvalues, we get a lower dimensional matrix, but we still have most of the information of the dataset.
+Why PCA works is because, the eigenvalues actually represents the importance of the related data in the matrix, so if we remove the related data of some small eigenvalues, we get a lower dimension matrix, but we still have most of the information of the dataset.
 
 ## Demo Code
 

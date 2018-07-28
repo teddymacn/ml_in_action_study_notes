@@ -8,11 +8,11 @@ Part I - Study notes of the published book "[Machine Learning in Action](https:/
 
 This is a great book, introducing the basis of many common machine learning algorithms with demo code in python 2.X. To be fair, the code of this book is good enough as demos of each chapter. But as an audience who is an experienced developer like me, who want to apply these machine learning algorithms in potential real projects, I always want to revise the implementation of each algorithm in my own style, for example, be python 3.X compatible, with more practical libraries, with more managable code styles, and with some extension of my understanding, etc. In short, I want my revised code implmentation and my extension make these algorithms be more friendly for a developer to reference & apply.
 
-Furthermore, for most of the algorithms mentioned in this book, there are many common general purpose implementations in many high level machine learning frameworks. So beside a revised version of each algorithm, I also try to provide an additional implementation for the same problem but with a high level machine learning framework such as [scikit-learn](http://scikit-learn.org), which might be a more practical way if we want to try on these algorithms efficiently in real life.
+Furthermore, for most of the algorithms mentioned in this book, there are many common general purpose implementations in many high level machine learning frameworks. So beside a revised version of each algorithm, I also try to provide an additional implementation for the same solution but with a high level machine learning framework such as [scikit-learn](http://scikit-learn.org), which might be a more practical way if we want to try on or apply these algorithms efficiently in real life.
 
 Part II - Study notes of the free online book "[Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/)".
 
-This online book covers the basis of neural networks and deep learning, which are very good supplements to Part I.
+This online book covers the basis of neural networks and deep learning, which are very good supplements to Part I. The best part of this book is, similar to the book of part 1, it not only introduces the neural networks algorithms step by step, but also provides the python implementations from scratch and also with detailed comments in the source code.
 
 ## Study Environment
 - Spyder IDE v3.X with Python 3.X

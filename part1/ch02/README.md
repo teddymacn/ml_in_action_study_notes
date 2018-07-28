@@ -1,6 +1,6 @@
 # k-Nearest Neighbors
 
-kNN is the first machine learning algorithm dicussed in book "Machine Learning in Action", which is a very good choice as a starting point, coz it is simple enough for a person even without or forgot advanced maths knowledge to understand it.
+kNN is the first machine learning algorithm dicussed in book "Machine Learning in Action", which is a very good choice as a starting point, coz it is simple enough for a person even without or forgot advanced Maths knowledge to understand it.
 
 This chapter demonstrates only the kNN algorithm for classification, but I'd like to extend it a little bit.
 
