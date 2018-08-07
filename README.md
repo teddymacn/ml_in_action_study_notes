@@ -12,7 +12,11 @@ Furthermore, for most of the algorithms mentioned in this book, there are many c
 
 Part II - Study notes of the free online book "[Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/)".
 
-This online book covers the basis of neural networks and deep learning, which are very good supplements to Part I. The best part of this book is, similar to the book of part 1, it not only introduces the neural networks algorithms step by step, but also provides the python implementations from scratch and also with detailed comments in the source code.
+This online book covers the basis of neural networks and deep learning, which are very good supplements to Part I. The best part of this book is it does not focus on applications of neural networks algorithms, but it step-by-step introduces the evolution of neural networks towards deep learning, showing you the problems and common solutions during the evolution. So when finishing the study of this book, you should be confident enough to take look at other neural network applications, demos and frameworks, and be able to understand how to adjust neural network parameters and what the potential issues are.
+
+And similar to the book of part 1, it not only introduces the neural networks algorithms step by step, but also provides the python implementations from scratch and also with detailed comments in the source code.
+
+All the demos in this book are doing classification with the mnist handwriting dataset. The mnist dataset is so popular that you can easily find different implementations with different neural network frameworks such as tensorflow, theano, keras and pytorch. So I don't provide additional demos in the notes of this book like in part 1, you can just google by yourself if you have interests.
 
 ## Study Environment
 - Spyder IDE v3.X with Python 3.X
@@ -22,6 +26,7 @@ This online book covers the basis of neural networks and deep learning, which ar
     - pandas - to simplify test data loading
     - pydotplus - for graphviz based plotting, e.g. tree plotting
     - sklearn - the high level machine learning framework to demo with
+    - theano - for running neural network demos in GPU for part 2
 
 ## Chapters
 
@@ -45,5 +50,8 @@ Part I - Machine Learning in Action
     - ch14 [Singular
 Value Decomposition (SVD)](./part1/ch14/README.md)
 
-in progress...
+Part II - Neural Networks and Deep Learning
 
+- ch01 [Using neural nets to recognize handwritten digits](./part2/ch01.md)
+
+in progress...
