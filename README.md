@@ -55,5 +55,6 @@ Part II - Neural Networks and Deep Learning
 - ch01 [Using neural nets to recognize handwritten digits](./part2/ch01.md)
 - ch02 [How the backpropagation algorithm works](./part2/ch02.md)
 - ch03 [Improving the way neural networks learn](./part2/ch03.md)
+- ch05 [Why are deep neural networks hard to train?](./part2/ch05.md)
 
 in progress...
