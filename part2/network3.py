@@ -36,7 +36,7 @@ import gzip
 import numpy as np
 import theano
 import theano.tensor as T
-from theano.tensor.nnet import conv
+from theano.tensor.nnet import conv2d
 from theano.tensor.nnet import softmax
 from theano.tensor import shared_randomstreams
 from theano.tensor.signal.pool import pool_2d
@@ -51,13 +51,14 @@ from theano.tensor import tanh
 #### Constants
 GPU = True
 if GPU:
-    print("Trying to run under a GPU.  If this is not desired, then modify "+\
+    print("Trying to run under a GPU. If GPU not available, it will fallback to use CPU."+\
+          "If you want to disable this message, please modify "+\
         "network3.py\nto set the GPU flag to False.")
-    try: theano.config.device = 'gpu'
+    try: theano.config.device = 'cuda0'
     except: pass # it's already set
     theano.config.floatX = 'float32'
 else:
-    print("Running with a CPU.  If this is not desired, then the modify "+\
+    print("Running with a CPU.  If this is not desired, please modify "+\
         "network3.py to set\nthe GPU flag to True.")
 
 #### Load the MNIST data
@@ -224,9 +225,9 @@ class ConvPoolLayer(object):
 
     def set_inpt(self, inpt, inpt_dropout, mini_batch_size):
         self.inpt = inpt.reshape(self.image_shape)
-        conv_out = conv.conv2d(
+        conv_out = conv2d(
             input=self.inpt, filters=self.w, filter_shape=self.filter_shape,
-            image_shape=self.image_shape)
+            input_shape=self.image_shape)
         pooled_out = pool_2d(
             input=conv_out, ws=self.poolsize, ignore_border=True)
         self.output = self.activation_fn(
@@ -309,3 +310,21 @@ def dropout_layer(layer, p_dropout):
         np.random.RandomState(0).randint(999999))
     mask = srng.binomial(n=1, p=1-p_dropout, size=layer.shape)
     return layer*T.cast(mask, theano.config.floatX)
+
+if __name__ == "__main__":
+    # load data
+    training_data, validation_data, test_data = load_data_shared()
+    mini_batch_size = 10
+
+    net = Network([
+        ConvPoolLayer(image_shape=(mini_batch_size, 1, 28, 28),
+                      filter_shape=(20, 1, 5, 5),
+                      poolsize=(2, 2),
+                      activation_fn=ReLU),
+        ConvPoolLayer(image_shape=(mini_batch_size, 20, 12, 12),
+                      filter_shape=(40, 20, 5, 5),
+                      poolsize=(2, 2),
+                      activation_fn=ReLU),
+        FullyConnectedLayer(n_in=40*4*4, n_out=100, activation_fn=ReLU),
+        SoftmaxLayer(n_in=100, n_out=10)], mini_batch_size)
+    net.SGD(training_data, 60, mini_batch_size, 0.03, validation_data, test_data, lmbda=0.1)
