@@ -24,6 +24,12 @@ def pairSorted(pairItems, desc = True):
 def loadTable(file):
     return np.array(pd.read_table(file,header=None))
 
+# convert type of specified column, return the converted column of data
+def convertColumnType(dataSet, columnIndex, targetType):
+    mat = np.empty(dataSet.shape[0], dtype=targetType)
+    mat[:] = dataSet[:,columnIndex]
+    return mat
+
 # create a digraph
 def createDiGraph():
     g = dot.Dot();

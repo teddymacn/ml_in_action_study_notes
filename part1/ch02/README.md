@@ -29,3 +29,5 @@ Although Ball Tree and k-d Tree might have smaller search cost, it doesn't mean 
 [kNNSklearn.py](kNNSklearn.py) - A scikit-learn version of kNN implementation
 
 [kNNPlotter.py](kNNPlotter.py) - The scripts for plotting figures in this chapter
+
+[kNN_rewritten.py](kNN_rewritten.py) - Runnable all-in-one rewritten version
