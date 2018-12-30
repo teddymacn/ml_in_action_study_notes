@@ -19,10 +19,6 @@ currrentDir = path.dirname(path.realpath(__file__))
 def dicSorted(dicItems, desc = True):
     return sorted(dicItems, key=op.itemgetter(1), reverse=desc)
 
-# return a sorted pair list
-def pairSorted(pairItems, desc = True):
-    return sorted(pairItems, key=lambda pair: pair[1], reverse=desc)
-
 # load a numpy array from txt file
 def loadTable(file):
     return array(pd.read_table(file,header=None))
