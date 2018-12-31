@@ -6,7 +6,7 @@ common utilities functions
 @author: Teddy.Ma
 """
 
-import numpy as np
+from numpy import *
 import operator as op
 import pandas as pd
 import pydotplus as dot
@@ -22,11 +22,11 @@ def pairSorted(pairItems, desc = True):
 
 # load a numpy array from txt file
 def loadTable(file):
-    return np.array(pd.read_table(file,header=None))
+    return array(pd.read_table(file,header=None))
 
 # convert type of specified column, return the converted column of data
 def convertColumnType(dataSet, columnIndex, targetType):
-    mat = np.empty(dataSet.shape[0], dtype=targetType)
+    mat = empty(dataSet.shape[0], dtype=targetType)
     mat[:] = dataSet[:,columnIndex]
     return mat
 
