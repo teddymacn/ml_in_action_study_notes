@@ -6,7 +6,6 @@ bayes_rewritten: Naive Bayes All-in-one Rewritten Version
 
 from numpy import *
 import operator as op
-import feedparser
 import os
 import pandas as pd
 
