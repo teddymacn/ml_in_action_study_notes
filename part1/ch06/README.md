@@ -4,7 +4,7 @@ Chapter 6 will be the most tough algorithm so far in this book.
 
 Support Vector Machine is one of the most powerful and widely used algorithms in machine learning. It is as important as neural networks, and in many scenarios, it is even better. The idea of Support Vector Machine is not hard to understand, it's optimization objective is to maximize the margin between the separator and the closest points to the separator. The closest points are called "support vectors", that's where the name "Support Vector Machine" comes from.
 
-Why we say it is the most tough algorithm so far is coz the algorithms to implement SVM require quite advanced Maths knowledge in linear algebra. In the demo code, you will see quite heavy linear algebra computations. So to understand the code, you might have to review your linear algebra knowledge and to get some practice in python numpy matrix computations first.
+Why we say it is the most tough algorithm so far is coz the algorithms to implement SVM require quite advanced Maths knowledge in linear algebra and optimization theory. In the demo code, you will see quite heavy linear algebra computations. So to understand the code, you might have to review your linear algebra knowledge and to get some practice in python numpy matrix computations first.
 
 When doing simple classification on linear datasets, the only strength of SVM is its memory efficiency.
 

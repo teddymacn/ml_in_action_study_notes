@@ -1,13 +1,20 @@
 '''
-Adaptive Boosting Source Code for chatpter 7
+adaboost_rewritten: Adaptive Boosting All-in-one Rewritten Version
 
 @author: Teddy.Ma
 '''
-import sys
-if (sys.path[-1] != '..'): sys.path.append('..')
 
-from shared.common import *
 from numpy import *
+import operator as op
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
+
+currrentDir = os.path.dirname(os.path.realpath(__file__))
+
+# load a numpy array from txt file
+def loadTable(file):
+    return array(pd.read_table(file,header=None))
 
 def loadSimpData():
     datMat = matrix([[ 1. ,  2.1],
@@ -104,9 +111,9 @@ def adaClassify(datToClass,classifierArr):
 
 # 7.6 test ada boosting on horse colic dataset
 def testAdaColic():
-    datArr,labelArr = loadDataSet('horseColicTraining2.txt')
+    datArr,labelArr = loadDataSet(currrentDir + '/horseColicTraining2.txt')
     classifierArray,aggClassEst = adaBoostTrainDS(datArr,labelArr,50)
-    testArr,testLabelArr = loadDataSet('horseColicTest2.txt')
+    testArr,testLabelArr = loadDataSet(currrentDir + '/horseColicTest2.txt')
     prediction10 = adaClassify(testArr,classifierArray)
     errArr = mat(ones((len(testArr),1)))
     errRate = errArr[prediction10!=mat(testLabelArr).T].sum() / len(testArr)
@@ -142,6 +149,18 @@ def plotROC(predStrengths, classLabels):
 
 # 7.7.1 test ROC plotting on horse colic dataset
 def testPlotROC():
-    datArr,labelArr = loadDataSet('horseColicTraining2.txt')
+    datArr,labelArr = loadDataSet(currrentDir + '/horseColicTraining2.txt')
     classifierArray,aggClassEst = adaBoostTrainDS(datArr,labelArr,10)
     plotROC(aggClassEst.T,labelArr)
+    
+
+if __name__ == "__main__":    
+    print("Test AdaBoost on Simple Data:")
+    testAdaBoostOnSimpleData()
+    print("\n---\n")
+    print("Test AdaBoost on Horse Colic Data:")    
+    testAdaColic()
+    print("\n---\n")
+    print("Test ROC plotting on Horse Colic Data:")    
+    testPlotROC()
+    
